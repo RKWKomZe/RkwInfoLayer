@@ -1,0 +1,37 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+	<div>
+        <div class="cookies-bar__text" role="alertdialog">
+            <f:translate key="templates_cookie.text" />&nbsp;
+
+            <br>
+            <f:if condition="{termsPid}">
+                <f:link.page pageUid="{termsPid}" class="cookies-bar__more-info">
+                    &gt;&nbsp;<f:translate key="templates_cookie.terms" />
+                </f:link.page>
+                <f:if condition="{imprintPid}">&nbsp;|&nbsp;</f:if>
+            </f:if>
+            <f:if condition="{imprintPid}">
+                <f:link.page pageUid="{imprintPid}" class="cookies-bar__more-info">
+                    &gt;&nbsp;<f:translate key="templates_cookie.imprint" />
+                </f:link.page>
+            </f:if>
+        </div>
+        <div class="cookies-bar__close-container">
+            <a href="#" class="cookies-bar__close-button icon-close link" id="rkw-infolayer-agree"></a>
+        </div>
+	</div>
+</f:section>

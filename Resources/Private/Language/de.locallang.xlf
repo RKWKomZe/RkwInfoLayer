@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-langauge="de" datatype="plaintext" original="messages" date="2014-12-03T10:02:04Z" product-name="rkw_info_layer">
+		<header/>
+		<body>
+			<trans-unit id="tx_rkwinfolayer_domain_model_infolayer">
+				<source>Infolayer</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwinfolayer_domain_model_infolayer.text">
+				<source>Text</source>
+			</trans-unit>
+
+			<trans-unit id="templates_cookie.text">
+				<source>Cookies help us to provide our service. By using our website you agree that we use cookies.</source>
+				<target>Cookies helfen uns bei der Bereitstellung unseres Web-Angebotes. Durch die Nutzung unserer Website erklären Sie sich damit einverstanden, dass wir Cookies setzen.</target>
+			</trans-unit>
+            <trans-unit id="templates_cookie.terms">
+                <source>Privacy Information</source>
+                <target>Datenschutzerklärung</target>
+            </trans-unit>
+            <trans-unit id="templates_cookie.imprint">
+                <source>Imprint</source>
+                <target>Impressum</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>
