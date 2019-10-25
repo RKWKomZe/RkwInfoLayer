@@ -16,3 +16,9 @@ if (!defined('TYPO3_MODE')) {
 		
 	)
 );
+
+//=================================================================
+// Add tables
+//=================================================================
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_rkwinfolayer_domain_model_infolayer', 'EXT:rkw_info_layer/Resources/Private/Language/locallang_csh_tx_rkwinfolayer_domain_model_infolayer.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_rkwinfolayer_domain_model_infolayer');
