@@ -38,24 +38,9 @@ page.includeJSFooter.rkwInfolayerCookieScript     = EXT:rkw_info_layer/Resources
 
 # page.includeJSFooter.rkwInfolayerScript.excludeFromConcatenation = 1
 
-lib.tx_rkwinfolayer = USER_INT
-lib.tx_rkwinfolayer {
-	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-	vendorName = RKW
-	extensionName = RkwInfoLayer
-	pluginName = Infolayer
-	controller = Infolayer
-	action = list
 
-	settings =< plugin.tx_rkwinfolayer.settings
-	persistence =< plugin.tx_rkwinfolayer.persistence
-	view =< plugin.tx_rkwinfolayer.view
-}
-
-
-
-tmp.jsonOutput = PAGE
-tmp.jsonOutput {
+txRkwInfolayerJson = PAGE
+txRkwInfolayerJson {
 	typeNum = 1417609477
 	config {
 		disableAllHeaderCode = 1
@@ -66,9 +51,19 @@ tmp.jsonOutput {
 		additionalHeaders.10.header = Content-type:application/json
 	}
 
-	20 < lib.tx_rkwinfolayer
+    20 = USER_INT
+	20 {
+
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    	vendorName = RKW
+    	extensionName = RkwInfoLayer
+    	pluginName = Infolayer
+    	controller = Infolayer
+    	action = list
+
+    	settings =< plugin.tx_rkwinfolayer.settings
+    	persistence =< plugin.tx_rkwinfolayer.persistence
+    	view =< plugin.tx_rkwinfolayer.view
+	}
 
 }
-
-tx_rkwinfolayer_json < tmp.jsonOutput
-tx_rkwinfolayer_json.typeNum = 1417609477
