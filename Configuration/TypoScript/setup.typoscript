@@ -1,0 +1,69 @@
+plugin.tx_rkwinfolayer {
+	view {
+		templateRootPath = {$plugin.tx_rkwinfolayer.view.templateRootPath}
+		partialRootPath = {$plugin.tx_rkwinfolayer.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_rkwinfolayer.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_rkwinfolayer.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		 rewrittenPropertyMapper = 1
+	}
+	settings {
+		initialShow    = {$plugin.tx_rkwinfolayer.settings.initialShow}
+		recallShow      = {$plugin.tx_rkwinfolayer.settings.recallShow}
+		randomShow =  {$plugin.tx_rkwinfolayer.settings.randomShow}
+		layerContentUid = {$plugin.tx_rkwinfolayer.settings.layerContentUid}
+		jsonType        = 1417609477
+		displayType = {$plugin.tx_rkwinfolayer.settings.displayType}
+		termsPid   = {$plugin.tx_rkwinfolayer.settings.termsPid}
+        imprintPid   = {$plugin.tx_rkwinfolayer.settings.imprintPid}
+    }
+}
+
+# Add styles if not disabled
+[globalVar = LIT:1 = {$plugin.tx_rkwinfolayer.settings.includeCSS}]
+	page.includeCSS.rkwInfolayer            = EXT:rkw_info_layer/Resources/Public/Stylesheets/rkw_infolayer.css
+[global]
+
+# Add jquery if not disabled
+[globalVar = LIT:1 = {$plugin.tx_rkwinfolayer.settings.includeJQuery}]
+	page.includeJSFooterlibs.jquery         = EXT:rkw_info_layer/Resources/Public/Scripts/jquery-1.11.1.min.js
+[global]
+
+page.includeJSFooter.rkwInfolayerScript     = EXT:rkw_info_layer/Resources/Public/Scripts/rkw_infolayer.js
+page.includeJSFooter.rkwInfolayerCookieScript     = EXT:rkw_info_layer/Resources/Public/Scripts/jquery.cookie-.1.4.1.js
+
+# page.includeJSFooter.rkwInfolayerScript.excludeFromConcatenation = 1
+
+
+txRkwInfolayerJson = PAGE
+txRkwInfolayerJson {
+	typeNum = 1417609477
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = 0
+		admPanel = 0
+		debug = 0
+		no_cache = 0
+		additionalHeaders.10.header = Content-type:application/json
+	}
+
+    20 = USER_INT
+	20 {
+
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    	vendorName = RKW
+    	extensionName = RkwInfoLayer
+    	pluginName = Infolayer
+    	controller = Infolayer
+    	action = list
+
+    	settings =< plugin.tx_rkwinfolayer.settings
+    	persistence =< plugin.tx_rkwinfolayer.persistence
+    	view =< plugin.tx_rkwinfolayer.view
+	}
+
+}
